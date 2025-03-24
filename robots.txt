@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pacman30thanniversary.cc/sitemap.xml 
