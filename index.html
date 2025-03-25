@@ -32,11 +32,27 @@
             width: 100%;
             aspect-ratio: 1060/750;
             max-height: 750px;
+            border: none;
+            display: block;
         }
         @media (max-width: 1080px) {
             .container {
                 width: 95%;
                 padding: 0 10px;
+            }
+        }
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .game-container iframe {
+                height: auto;
+                min-height: 300px;
+                max-height: 80vh;
+                width: 100%;
+                aspect-ratio: 1/1; /* More square aspect ratio for mobile */
+            }
+            
+            .text-sm-mobile {
+                font-size: 0.875rem;
             }
         }
     </style>
@@ -64,20 +80,25 @@
         <!-- Controls Instructions Banner -->
         <div class="game-controls w-full max-w-1060px mx-auto bg-yellow-400 text-black p-3 rounded-t-lg text-center font-semibold flex items-center justify-center mb-1">
             <div class="flex items-center space-x-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden md:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
                 </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden md:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden md:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden md:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
-                <span class="ml-2">Use arrow keys to control Pac-Man!</span>
+                <span class="ml-2 text-sm-mobile md:text-base">Use arrow keys to control Pac-Man!</span>
             </div>
+        </div>
+
+        <!-- Mobile notice -->
+        <div class="md:hidden w-full max-w-1060px mx-auto bg-blue-600 text-white p-2 rounded text-center text-sm mb-2">
+            For best experience, play on desktop or use external keyboard
         </div>
 
         <!-- Game Container -->
