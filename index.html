@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SZZS6YZQ8Q"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZZS6YZQ8Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-  gtag('config', 'G-SZZS6YZQ8Q');
-</script>
+        gtag('config', 'G-SZZS6YZQ8Q');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pac-Man 30th Anniversary - Play Classic Arcade Game Online</title>
@@ -32,11 +32,55 @@
             width: 100%;
             aspect-ratio: 1060/750;
             max-height: 750px;
+            border: none;
+            display: block;
         }
         @media (max-width: 1080px) {
             .container {
                 width: 95%;
                 padding: 0 10px;
+            }
+        }
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .game-container iframe {
+                height: 100vw; /* Better aspect ratio for mobile */
+                max-height: 80vh; /* Prevent it from being too tall */
+            }
+            
+            .mobile-controls {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                gap: 10px;
+                margin: 20px auto;
+                max-width: 300px;
+            }
+            
+            .control-btn {
+                background: rgba(0, 0, 255, 0.7);
+                color: white;
+                border: none;
+                border-radius: 50%;
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                touch-action: manipulation;
+                -webkit-tap-highlight-color: transparent;
+            }
+            
+            .up-btn { grid-column: 2; grid-row: 1; }
+            .left-btn { grid-column: 1; grid-row: 2; }
+            .right-btn { grid-column: 3; grid-row: 2; }
+            .down-btn { grid-column: 2; grid-row: 3; }
+        }
+        
+        @media (min-width: 769px) {
+            .mobile-controls {
+                display: none; /* Hide on desktop */
             }
         }
     </style>
@@ -99,6 +143,19 @@
                         data-wg-content="true">
                 </iframe>
             </div>
+            
+            <!-- Mobile Controls - Only visible on mobile -->
+            <div class="mobile-controls">
+                <button class="control-btn up-btn" id="upBtn">↑</button>
+                <button class="control-btn left-btn" id="leftBtn">←</button>
+                <button class="control-btn right-btn" id="rightBtn">→</button>
+                <button class="control-btn down-btn" id="downBtn">↓</button>
+            </div>
+            
+            <!-- Mobile Instructions -->
+            <div class="md:hidden text-center mt-4 mb-8 text-yellow-400">
+                <p>👆 Use touch controls above on mobile devices</p>
+            </div>
         </section>
 
         <!-- Game Instructions -->
@@ -150,5 +207,102 @@
             <p>&copy; 2024 Pac-Man 30th Anniversary. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Add JavaScript for mobile controls -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get reference to the iframe
+            const gameFrame = document.getElementById('gameFrame');
+            
+            // Function to simulate arrow key press
+            function simulateKeyEvent(keyCode, type) {
+                const event = new KeyboardEvent(type, {
+                    bubbles: true,
+                    cancelable: true,
+                    keyCode: keyCode
+                });
+                
+                gameFrame.contentWindow.document.dispatchEvent(event);
+                document.dispatchEvent(event);
+            }
+            
+            // Control button event handlers
+            const upBtn = document.getElementById('upBtn');
+            const leftBtn = document.getElementById('leftBtn');
+            const rightBtn = document.getElementById('rightBtn');
+            const downBtn = document.getElementById('downBtn');
+            
+            // Define key codes
+            const UP = 38;
+            const LEFT = 37;
+            const RIGHT = 39;
+            const DOWN = 40;
+            
+            // Touch and click events for buttons
+            if(upBtn) {
+                ['touchstart', 'mousedown'].forEach(evt => 
+                    upBtn.addEventListener(evt, function(e) {
+                        e.preventDefault();
+                        simulateKeyEvent(UP, 'keydown');
+                    })
+                );
+                
+                ['touchend', 'mouseup'].forEach(evt => 
+                    upBtn.addEventListener(evt, function(e) {
+                        e.preventDefault();
+                        simulateKeyEvent(UP, 'keyup');
+                    })
+                );
+            }
+            
+            if(leftBtn) {
+                ['touchstart', 'mousedown'].forEach(evt => 
+                    leftBtn.addEventListener(evt, function(e) {
+                        e.preventDefault();
+                        simulateKeyEvent(LEFT, 'keydown');
+                    })
+                );
+                
+                ['touchend', 'mouseup'].forEach(evt => 
+                    leftBtn.addEventListener(evt, function(e) {
+                        e.preventDefault();
+                        simulateKeyEvent(LEFT, 'keyup');
+                    })
+                );
+            }
+            
+            if(rightBtn) {
+                ['touchstart', 'mousedown'].forEach(evt => 
+                    rightBtn.addEventListener(evt, function(e) {
+                        e.preventDefault();
+                        simulateKeyEvent(RIGHT, 'keydown');
+                    })
+                );
+                
+                ['touchend', 'mouseup'].forEach(evt => 
+                    rightBtn.addEventListener(evt, function(e) {
+                        e.preventDefault();
+                        simulateKeyEvent(RIGHT, 'keyup');
+                    })
+                );
+            }
+            
+            if(downBtn) {
+                ['touchstart', 'mousedown'].forEach(evt => 
+                    downBtn.addEventListener(evt, function(e) {
+                        e.preventDefault();
+                        simulateKeyEvent(DOWN, 'keydown');
+                    })
+                );
+                
+                ['touchend', 'mouseup'].forEach(evt => 
+                    downBtn.addEventListener(evt, function(e) {
+                        e.preventDefault();
+                        simulateKeyEvent(DOWN, 'keyup');
+                    })
+                );
+            }
+        });
+    </script>
 </body>
 </html> 
