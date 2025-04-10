@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{GAME_TITLE}} - Play Free Online | Pacman 30th Anniversary</title>
+    <meta name="description" content="Play {{GAME_TITLE}} online for free. Experience this exciting game directly in your browser. No download required!">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        /* Game Page Specific Styles */
+        .game-page {
+            background: var(--background-dark);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .game-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 200px 1fr 200px;
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        /* Left Sidebar */
+        .left-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .similar-game {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .similar-game:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 10px var(--hover-glow);
+        }
+
+        .similar-game img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .similar-game-title {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 5px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        /* Main Game Area */
+        .game-main {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .game-title {
+            font-size: 2em;
+            color: var(--text-primary);
+            text-align: center;
+            margin: 0;
+            padding: 10px 0;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            border-radius: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .game-frame-container {
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .game-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .game-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: var(--background-card);
+            border-radius: 10px;
+        }
+
+        /* Rating System */
+        .rating-system {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stars {
+            display: flex;
+            gap: 5px;
+        }
+
+        .star {
+            color: #FFD700;
+            font-size: 24px;
+        }
+
+        .votes {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Share Buttons */
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .share-btn {
+            padding: 8px 16px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: opacity 0.3s ease;
+        }
+
+        .share-btn:hover {
+            opacity: 0.9;
+        }
+
+        .share-facebook {
+            background: #1877F2;
+        }
+
+        .share-twitter {
+            background: #1DA1F2;
+        }
+
+        .share-reddit {
+            background: #FF4500;
+        }
+
+        .share-linkedin {
+            background: #0A66C2;
+        }
+
+        /* Fullscreen Button */
+        .fullscreen-btn {
+            padding: 8px 16px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .fullscreen-btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Right Sidebar */
+        .right-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .game-container {
+                grid-template-columns: 150px 1fr 150px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .game-container {
+                grid-template-columns: 1fr;
+            }
+
+            .left-sidebar, .right-sidebar {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+
+            .game-controls {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .share-buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="main-nav">
+        <!-- ... existing navigation ... -->
+    </nav>
+
+    <div class="game-page">
+        <div class="game-container">
+            <!-- Left Sidebar - Similar Games -->
+            <div class="left-sidebar">
+                <a href="/games/tube-fall" class="similar-game">
+                    <div class="similar-game-title">Tube Fall</div>
+                    <img src="/images/games/thumbnails/tube-fall.jpg" alt="Tube Fall">
+                </a>
+                <a href="/games/chill-guy-clicker" class="similar-game">
+                    <div class="similar-game-title">Chill Guy Clicker</div>
+                    <img src="/images/games/thumbnails/chill-guy-clicker.jpg" alt="Chill Guy Clicker">
+                </a>
+                <a href="/games/tap-road" class="similar-game">
+                    <div class="similar-game-title">Tap Road</div>
+                    <img src="/images/games/thumbnails/tap-road.jpg" alt="Tap Road">
+                </a>
+            </div>
+
+            <!-- Main Game Area -->
+            <div class="game-main">
+                <h1 class="game-title">{{GAME_TITLE}}</h1>
+                <div class="game-frame-container">
+                    <iframe class="game-frame" src="{{GAME_URL}}" allowfullscreen></iframe>
+                </div>
+                <div class="game-controls">
+                    <div class="rating-system">
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <span class="votes">455635 votes 4.4/5</span>
+                    </div>
+                    <div class="share-buttons">
+                        <a href="#" class="share-btn share-facebook">Share</a>
+                        <a href="#" class="share-btn share-twitter">Tweet</a>
+                        <a href="#" class="share-btn share-reddit">Reddit</a>
+                        <a href="#" class="share-btn share-linkedin">Share</a>
+                    </div>
+                    <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+                </div>
+            </div>
+
+            <!-- Right Sidebar - More Games -->
+            <div class="right-sidebar">
+                <a href="/games/jetski-race" class="similar-game">
+                    <div class="similar-game-title">Jetski Race</div>
+                    <img src="/images/games/thumbnails/jetski-race.jpg" alt="Jetski Race">
+                </a>
+                <a href="/games/curve-rush" class="similar-game">
+                    <div class="similar-game-title">Curve Rush</div>
+                    <img src="/images/games/thumbnails/curve-rush.jpg" alt="Curve Rush">
+                </a>
+                <a href="/games/slope-2" class="similar-game">
+                    <div class="similar-game-title">Slope 2</div>
+                    <img src="/images/games/thumbnails/slope-2.jpg" alt="Slope 2">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fullscreen functionality
+        function toggleFullscreen() {
+            const gameFrame = document.querySelector('.game-frame-container');
+            if (!document.fullscreenElement) {
+                if (gameFrame.requestFullscreen) {
+                    gameFrame.requestFullscreen();
+                } else if (gameFrame.webkitRequestFullscreen) {
+                    gameFrame.webkitRequestFullscreen();
+                } else if (gameFrame.msRequestFullscreen) {
+                    gameFrame.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+        }
+
+        // Share functionality
+        document.querySelectorAll('.share-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const gameTitle = document.querySelector('.game-title').textContent;
+                const url = window.location.href;
+                const text = `Play ${gameTitle} online for free!`;
+
+                switch(true) {
+                    case this.classList.contains('share-facebook'):
+                        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`);
+                        break;
+                    case this.classList.contains('share-twitter'):
+                        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`);
+                        break;
+                    case this.classList.contains('share-reddit'):
+                        window.open(`https://reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(text)}`);
+                        break;
+                    case this.classList.contains('share-linkedin'):
+                        window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(text)}`);
+                        break;
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
