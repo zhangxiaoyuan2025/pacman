@@ -6,6 +6,12 @@
     <title>Slope Game - Play Free Online 3D Ball Rolling Game | Pacman 30th Anniversary</title>
     <meta name="description" content="Play Slope Game online for free. Experience the thrilling 3D ball rolling adventure with challenging obstacles. No download required, play instantly in your browser!">
     
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.pacman30thanniversary.cc/" />
+
+    <!-- Alternate language versions if you have them -->
+    <link rel="alternate" href="https://www.pacman30thanniversary.cc/" hreflang="en" />
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.pacman30thanniversary.cc/">
@@ -20,7 +26,7 @@
     <meta property="twitter:description" content="Experience the thrill of endless running in this addictive 3D game">
     <meta property="twitter:image" content="https://www.pacman30thanniversary.cc/images/slope-game-og.jpg">
 
-    <!-- Structured Data -->
+    <!-- Structured Data - Updated with more detailed information -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -32,20 +38,62 @@
       "operatingSystem": "Any",
       "applicationCategory": "Game",
       "url": "https://www.pacman30thanniversary.cc/",
+      "author": {
+        "@type": "Organization",
+        "name": "Slope Game",
+        "url": "https://www.pacman30thanniversary.cc/"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.5",
-        "ratingCount": "1000"
-      }
+        "ratingCount": "1000",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "image": "https://www.pacman30thanniversary.cc/images/slope-game-og.jpg",
+      "screenshot": "https://www.pacman30thanniversary.cc/images/games/slope-game.jpg"
+    }
+    </script>
+
+    <!-- Navigation Breadcrumbs Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.pacman30thanniversary.cc/"
+      }]
     }
     </script>
 
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" type="image/png" href="/favicon.png">
     <style>
+        :root {
+            --primary-color: #7289DA;    /* Discord-style purple-blue */
+            --secondary-color: #4E5D94;  /* Darker shade of primary */
+            --accent-color: #43B581;     /* Modern gaming green */
+            --background-dark: #1e1e2e;  /* Rich dark background */
+            --background-card: #2c2c3d;  /* Slightly lighter than background */
+            --text-primary: #ffffff;     /* Pure white for main text */
+            --text-secondary: #b9bbbe;   /* Softer white for secondary text */
+            --gradient-1: #FF6B6B;       /* Warm gradient start */
+            --gradient-2: #4ECDC4;       /* Cool gradient end */
+            --hover-glow: rgba(114, 137, 218, 0.3); /* Subtle glow effect */
+        }
+
         body {
-            background-color: #1a1a1a;
-            color: white;
+            background-color: var(--background-dark);
+            color: var(--text-primary);
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -54,15 +102,29 @@
         .site-header {
             text-align: center;
             padding: 20px;
-            background: #000;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
             margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .site-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0,0,0,0.2), transparent);
         }
 
         .site-header h1 {
-            color: #fff;
+            color: var(--text-primary);
             font-size: 2.5em;
             margin: 0;
-            text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .games-container {
@@ -73,202 +135,682 @@
 
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
+            grid-template-columns: repeat(5, 150px);
+            gap: 20px;
+            justify-content: center;
             margin: 0 auto;
         }
 
         .game-card {
             position: relative;
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
-            aspect-ratio: 1;
-            border: 2px solid #0f0;
-            transition: all 0.3s ease;
+            width: 150px;
+            height: 150px;
+            background: var(--background-card);
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .game-title-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.4));
+            color: var(--text-primary);
+            padding: 8px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            z-index: 1;
+            transition: all 0.3s ease;
         }
 
         .game-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
-            border-color: #00ff00;
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 8px 15px var(--hover-glow);
+        }
+
+        .game-card:hover .game-title-top {
+            background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.6));
+            color: var(--accent-color);
         }
 
         .game-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            transition: transform 0.5s ease;
         }
 
         .game-card:hover img {
             transform: scale(1.1);
         }
 
-        .game-title {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            font-size: 16px;
-            text-shadow: 0 0 5px #0f0;
-        }
-
         .featured-game {
-            grid-column: span 2;
-            grid-row: span 2;
+            grid-column: 2 / span 3;
+            grid-row: span 3;
+            width: 500px;
+            height: 500px;
+            justify-self: center;
+            border-width: 3px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
-        .featured-game .game-title {
+        .featured-game .game-title-top {
             font-size: 24px;
-            padding: 15px;
+            padding: 12px;
+            background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.5));
+        }
+
+        .featured-game:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px var(--hover-glow);
         }
 
         @media (max-width: 1200px) {
             .games-grid {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(4, 150px);
+            }
+            .featured-game {
+                grid-column: 1 / span 4;
+                width: 400px;
+                height: 400px;
             }
         }
 
         @media (max-width: 768px) {
             .games-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(3, 150px);
+                gap: 15px;
+            }
+            .featured-game {
+                grid-column: 1 / span 3;
+                width: 300px;
+                height: 300px;
             }
         }
 
         @media (max-width: 480px) {
             .games-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, 150px);
+                gap: 10px;
+            }
+            .featured-game {
+                grid-column: 1 / span 2;
+                width: 250px;
+                height: 250px;
+            }
+            .featured-game .game-title-top {
+                font-size: 18px;
+            }
+        }
+
+        footer {
+            background: var(--background-card);
+            color: var(--text-secondary);
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Navigation Styles */
+        .main-nav {
+            background: var(--background-card);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-logo span {
+            color: var(--text-primary);
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .nav-links a.active {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-wrap: wrap;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                order: 1;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--background-card);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                order: 3;
+                width: 100%;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                width: 100%;
+                text-align: center;
+            }
+
+            .search-container {
+                order: 2;
+                width: calc(100% - 50px); /* Account for menu button */
+                margin: 0;
+            }
+        }
+
+        /* Search Box Styles */
+        .search-container {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .search-box {
+            padding: 8px 12px;
+            padding-right: 40px;
+            border: 2px solid var(--primary-color);
+            border-radius: 20px;
+            background: var(--background-dark);
+            color: var(--text-primary);
+            font-size: 14px;
+            width: 200px;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 10px var(--hover-glow);
+            width: 250px;
+        }
+
+        .search-button {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .search-button:hover {
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .search-container {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .search-box:focus {
+                width: 100%;
+            }
+        }
+
+        .content-section {
+            background: var(--background-dark);
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .game-description {
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .game-description h2 {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .game-description h3 {
+            font-size: 1.5em;
+            color: var(--accent-color);
+            margin: 30px 0 15px;
+        }
+
+        .game-description p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .game-features ul,
+        .gameplay-tips ol,
+        .game-modes ul,
+        .why-play ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .game-features li,
+        .gameplay-tips li,
+        .game-modes li,
+        .why-play li {
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+        }
+
+        .faq-section {
+            background: var(--background-card);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .faq-item p {
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 20px 0;
+            }
+
+            .game-description h2 {
+                font-size: 1.8em;
+            }
+
+            .game-description h3 {
+                font-size: 1.3em;
+            }
+        }
+
+        /* Back to Top Button Styles */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            cursor: pointer;
+            border: none;
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
             }
         }
     </style>
 </head>
 <body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="/" class="active">Home</a>
+                <a href="/games/popular" title="Most Popular Online Games">Popular Games</a>
+                <a href="/games/new" title="Latest Online Games">New Games</a>
+                <a href="/games/categories" title="Browse Game Categories">Categories</a>
+                <a href="/about" title="About Slope Game">About</a>
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search games..." aria-label="Search games">
+                <button class="search-button" aria-label="Search">🔍</button>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
     <header class="site-header">
         <h1>Slope Game</h1>
     </header>
 
     <div class="games-container">
         <div class="games-grid">
+            <!-- Among Us card positioned before featured game -->
+            <a href="/games/among-us" class="game-card">
+                <div class="game-title-top">Among Us</div>
+                <img src="/images/games/among-us.jpg" alt="Among Us">
+            </a>
+
             <!-- Featured Game -->
             <a href="/play" class="game-card featured-game">
+                <div class="game-title-top">Slope Game</div>
                 <img src="/images/games/slope-game.jpg" alt="Slope Game">
-                <div class="game-title">Slope Game</div>
             </a>
 
             <!-- Row 1 -->
             <a href="/games/snow-road-3d" class="game-card">
+                <div class="game-title-top">Snow Road 3D</div>
                 <img src="/images/games/snow-road-3d.jpg" alt="Snow Road 3D">
-                <div class="game-title">Snow Road 3D</div>
             </a>
             <a href="/games/escape-road" class="game-card">
+                <div class="game-title-top">Escape Road</div>
                 <img src="/images/games/escape-road.jpg" alt="Escape Road">
-                <div class="game-title">Escape Road</div>
             </a>
             <a href="/games/jetski-race" class="game-card">
+                <div class="game-title-top">Jetski Race</div>
                 <img src="/images/games/jetski-race.jpg" alt="Jetski Race">
-                <div class="game-title">Jetski Race</div>
             </a>
             <a href="/games/curve-rush" class="game-card">
+                <div class="game-title-top">Curve Rush</div>
                 <img src="/images/games/curve-rush.jpg" alt="Curve Rush">
-                <div class="game-title">Curve Rush</div>
             </a>
 
             <!-- Row 2 -->
             <a href="/games/slope-2" class="game-card">
+                <div class="game-title-top">Slope 2</div>
                 <img src="/images/games/slope-2.jpg" alt="Slope 2">
-                <div class="game-title">Slope 2</div>
             </a>
             <a href="/games/tube-fall" class="game-card">
+                <div class="game-title-top">Tube Fall</div>
                 <img src="/images/games/tube-fall.jpg" alt="Tube Fall">
-                <div class="game-title">Tube Fall</div>
             </a>
             <a href="/games/head-basketball" class="game-card">
+                <div class="game-title-top">Head Basketball</div>
                 <img src="/images/games/head-basketball.jpg" alt="Head Basketball">
-                <div class="game-title">Head Basketball</div>
             </a>
             <a href="/games/traffic-road" class="game-card">
+                <div class="game-title-top">Traffic Road</div>
                 <img src="/images/games/traffic-road.jpg" alt="Traffic Road">
-                <div class="game-title">Traffic Road</div>
             </a>
 
             <!-- Row 3 -->
             <a href="/games/slope-3" class="game-card">
+                <div class="game-title-top">Slope 3</div>
                 <img src="/images/games/slope-3.jpg" alt="Slope 3">
-                <div class="game-title">Slope 3</div>
             </a>
             <a href="/games/escape-road-2" class="game-card">
+                <div class="game-title-top">Escape Road 2</div>
                 <img src="/images/games/escape-road-2.jpg" alt="Escape Road 2">
-                <div class="game-title">Escape Road 2</div>
             </a>
             <a href="/games/geometry-dash" class="game-card">
+                <div class="game-title-top">Geometry Dash</div>
                 <img src="/images/games/geometry-dash.jpg" alt="Geometry Dash">
-                <div class="game-title">Geometry Dash</div>
             </a>
             <a href="/games/chill-guy-clicker" class="game-card">
+                <div class="game-title-top">Chill Guy Clicker</div>
                 <img src="/images/games/chill-guy-clicker.jpg" alt="Chill Guy Clicker">
-                <div class="game-title">Chill Guy Clicker</div>
             </a>
 
             <!-- Row 4 -->
             <a href="/games/tap-road" class="game-card">
+                <div class="game-title-top">Tap Road</div>
                 <img src="/images/games/tap-road.jpg" alt="Tap Road">
-                <div class="game-title">Tap Road</div>
             </a>
             <a href="/games/death-run-3d" class="game-card">
+                <div class="game-title-top">Death Run 3D</div>
                 <img src="/images/games/death-run-3d.jpg" alt="Death Run 3D">
-                <div class="game-title">Death Run 3D</div>
             </a>
             <a href="/games/slope-snowball" class="game-card">
+                <div class="game-title-top">Slope Snowball</div>
                 <img src="/images/games/slope-snowball.jpg" alt="Slope Snowball">
-                <div class="game-title">Slope Snowball</div>
             </a>
             <a href="/games/kong-adventure" class="game-card">
+                <div class="game-title-top">Kong Adventure</div>
                 <img src="/images/games/kong-adventure.jpg" alt="Kong Adventure">
-                <div class="game-title">Kong Adventure</div>
             </a>
 
             <!-- Row 5 -->
             <a href="/games/madalin-stunt-cars-2" class="game-card">
+                <div class="game-title-top">Madalin Stunt Cars 2</div>
                 <img src="/images/games/madalin-stunt-cars-2.jpg" alt="Madalin Stunt Cars 2">
-                <div class="game-title">Madalin Stunt Cars 2</div>
             </a>
             <a href="/games/overtake-x" class="game-card">
+                <div class="game-title-top">Overtake X</div>
                 <img src="/images/games/overtake-x.jpg" alt="Overtake X">
-                <div class="game-title">Overtake X</div>
             </a>
             <a href="/games/color-rush" class="game-card">
+                <div class="game-title-top">Color Rush</div>
                 <img src="/images/games/color-rush.jpg" alt="Color Rush">
-                <div class="game-title">Color Rush</div>
             </a>
             <a href="/games/wave-road" class="game-card">
+                <div class="game-title-top">Wave Road</div>
                 <img src="/images/games/wave-road.jpg" alt="Wave Road">
-                <div class="game-title">Wave Road</div>
             </a>
 
             <!-- Row 6 -->
             <a href="/games/slope-spooky" class="game-card">
+                <div class="game-title-top">Slope Spooky</div>
                 <img src="/images/games/slope-spooky.jpg" alt="Slope Spooky">
-                <div class="game-title">Slope Spooky</div>
             </a>
             <a href="/games/supermarket-master" class="game-card">
+                <div class="game-title-top">Supermarket Master</div>
                 <img src="/images/games/supermarket-master.jpg" alt="Supermarket Master">
-                <div class="game-title">Supermarket Master</div>
             </a>
             <a href="/games/snow-road" class="game-card">
+                <div class="game-title-top">Snow Road</div>
                 <img src="/images/games/snow-road.jpg" alt="Snow Road">
-                <div class="game-title">Snow Road</div>
             </a>
             <a href="/games/escape-road-city-2" class="game-card">
+                <div class="game-title-top">Escape Road City 2</div>
                 <img src="/images/games/escape-road-city-2.jpg" alt="Escape Road City 2">
-                <div class="game-title">Escape Road City 2</div>
+            </a>
+
+            <!-- Adding two new game cards -->
+            <a href="/games/slope-cyber" class="game-card">
+                <div class="game-title-top">Slope Cyber</div>
+                <img src="/images/games/slope-cyber.jpg" alt="Slope Cyber">
             </a>
         </div>
     </div>
+
+    <section class="content-section">
+        <div class="content-container">
+            <article class="game-description">
+                <h2>What is Slope Game?</h2>
+                <p>Slope Game is an adrenaline-pumping 3D endless runner that challenges players to guide a rolling ball through an increasingly difficult neon course. Set in a futuristic environment, this fast-paced game tests your reflexes, precision, and determination as you navigate through a maze of obstacles and steep slopes.</p>
+                
+                <div class="game-features">
+                    <h3>Key Features of Slope Game</h3>
+                    <ul>
+                        <li><strong>Endless Challenge:</strong> Experience an infinite procedurally generated course that becomes progressively more challenging.</li>
+                        <li><strong>Smooth Controls:</strong> Simple yet responsive controls make it easy to start but difficult to master.</li>
+                        <li><strong>High-Speed Action:</strong> Feel the rush as your ball accelerates down steep slopes and around sharp corners.</li>
+                        <li><strong>Beautiful Graphics:</strong> Enjoy stunning neon visuals and smooth 3D graphics that create an immersive gaming experience.</li>
+                        <li><strong>No Download Required:</strong> Play instantly in your browser without installing any software.</li>
+                    </ul>
+                </div>
+
+                <div class="gameplay-tips">
+                    <h3>Tips to Master Slope Game</h3>
+                    <ol>
+                        <li><strong>Start Slow:</strong> Focus on controlled movements until you get comfortable with the game's physics.</li>
+                        <li><strong>Watch Ahead:</strong> Keep your eyes focused further down the track to anticipate upcoming obstacles.</li>
+                        <li><strong>Use Momentum:</strong> Learn to use the slopes to your advantage - sometimes going faster is safer than trying to slow down.</li>
+                        <li><strong>Practice Sharp Turns:</strong> Master the art of quick directional changes without losing speed.</li>
+                        <li><strong>Learn from Mistakes:</strong> Each run is an opportunity to improve your high score.</li>
+                    </ol>
+                </div>
+
+                <div class="game-modes">
+                    <h3>Game Modes and Variations</h3>
+                    <p>Slope Game offers several exciting variations to keep you engaged:</p>
+                    <ul>
+                        <li><strong>Classic Mode:</strong> The original endless runner experience</li>
+                        <li><strong>Time Trial:</strong> Race against the clock to reach checkpoints</li>
+                        <li><strong>Challenge Mode:</strong> Complete specific objectives to unlock achievements</li>
+                        <li><strong>Practice Mode:</strong> Perfect your skills without pressure</li>
+                    </ul>
+                </div>
+
+                <div class="faq-section">
+                    <h3>Frequently Asked Questions</h3>
+                    <div class="faq-item">
+                        <h4>How do I control the ball in Slope Game?</h4>
+                        <p>Use the arrow keys or WASD keys to control the ball's movement. Left/Right arrows or A/D keys control direction, while Up/Down arrows or W/S keys can adjust speed.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Can I play Slope Game on mobile devices?</h4>
+                        <p>Yes! Slope Game is fully optimized for mobile devices. Simply use touch controls by sliding your finger left or right to navigate.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Is Slope Game free to play?</h4>
+                        <p>Absolutely! Slope Game is completely free to play in your web browser with no hidden costs or in-app purchases.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>How do I improve my high score?</h4>
+                        <p>Practice regular runs, learn the patterns, and focus on maintaining consistent speed while avoiding obstacles. The key is finding the perfect balance between speed and control.</p>
+                    </div>
+                </div>
+
+                <div class="why-play">
+                    <h3>Why Play Slope Game?</h3>
+                    <p>Slope Game stands out among online games for several reasons:</p>
+                    <ul>
+                        <li>Perfect for quick gaming sessions or extended play</li>
+                        <li>Helps improve hand-eye coordination and reflexes</li>
+                        <li>Provides a challenging yet rewarding experience</li>
+                        <li>Regular updates with new features and improvements</li>
+                        <li>Active community of players sharing tips and competing for high scores</li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </section>
 
     <footer class="footer">
         <div class="footer-content">
@@ -279,9 +821,19 @@
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="/privacy">Privacy Policy</a></li>
-                    <li><a href="/terms">Terms of Service</a></li>
-                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/legal/privacy-policy" title="Privacy Policy">Privacy Policy</a></li>
+                    <li><a href="/legal/terms-of-service" title="Terms of Service">Terms of Service</a></li>
+                    <li><a href="/support/contact" title="Contact Support">Contact Us</a></li>
+                    <li><a href="/sitemap.xml" title="Website Sitemap">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Game Categories</h3>
+                <ul>
+                    <li><a href="/games/categories/racing" title="Racing Games">Racing Games</a></li>
+                    <li><a href="/games/categories/arcade" title="Arcade Games">Arcade Games</a></li>
+                    <li><a href="/games/categories/puzzle" title="Puzzle Games">Puzzle Games</a></li>
+                    <li><a href="/games/categories/action" title="Action Games">Action Games</a></li>
                 </ul>
             </div>
         </div>
@@ -290,6 +842,76 @@
         </div>
     </footer>
 
+    <!-- Add this button before the closing body tag -->
+    <button class="back-to-top" aria-label="Back to top">↑</button>
+
     <script src="/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            const searchBox = document.querySelector('.search-box');
+            const searchButton = document.querySelector('.search-button');
+
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navLinks.classList.toggle('active');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.nav-container')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+
+            // Close menu when window is resized to desktop size
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    navLinks.classList.remove('active');
+                }
+            });
+
+            // Search functionality
+            searchButton.addEventListener('click', function() {
+                const searchTerm = searchBox.value.trim();
+                if (searchTerm) {
+                    // You can implement the search functionality here
+                    window.location.href = `/search?q=${encodeURIComponent(searchTerm)}`;
+                }
+            });
+
+            // Allow search on Enter key
+            searchBox.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const searchTerm = this.value.trim();
+                    if (searchTerm) {
+                        window.location.href = `/search?q=${encodeURIComponent(searchTerm)}`;
+                    }
+                }
+            });
+
+            // Back to top functionality
+            const backToTopButton = document.querySelector('.back-to-top');
+
+            // Show/hide button based on scroll position
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+
+            // Smooth scroll to top when clicked
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html> 
