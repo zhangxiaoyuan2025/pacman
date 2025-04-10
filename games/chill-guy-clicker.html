@@ -3,97 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chill Guy Clicker - Play Free Online Idle Game | Pacman 30th Anniversary</title>
-    <meta name="description" content="Play Chill Guy Clicker online for free. Click your way to success in this relaxing idle game. Upgrade your character and earn achievements!">
-    <link rel="canonical" href="https://www.pacman30thanniversary.cc/games/chill-guy-clicker" />
-    <link rel="stylesheet" href="/css/style.css">
-    <style>
-        /* ... Copy all styles from template.html ... */
-    </style>
+    <title>Chill Guy Clicker - Play Online Free | Slope Games</title>
+    <meta name="description" content="Play Chill Guy Clicker online for free. Click and upgrade your way through this relaxing idle game. Perfect for casual gaming sessions!">
+    <link rel="canonical" href="https://www.slopegames.com/games/chill-guy-clicker">
+    <link rel="stylesheet" href="/css/game-page.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
     <nav class="main-nav">
         <div class="nav-container">
+            <a href="/" class="logo">Slope Games</a>
+            <button class="mobile-menu-btn">☰</button>
             <div class="nav-links">
                 <a href="/">Home</a>
-                <a href="/games/popular">Popular Games</a>
-                <a href="/games/new">New Games</a>
-                <a href="/games/categories">Categories</a>
+                <a href="/popular-games">Popular</a>
+                <a href="/new-games">New</a>
+                <a href="/categories">Categories</a>
                 <a href="/about">About</a>
+                <div class="search-box">
+                    <input type="text" placeholder="Search games...">
+                    <button type="submit">🔍</button>
+                </div>
             </div>
-            <div class="search-container">
-                <input type="text" class="search-box" placeholder="Search games..." aria-label="Search games">
-                <button class="search-button" aria-label="Search">🔍</button>
-            </div>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
         </div>
     </nav>
 
     <div class="game-page">
-        <div class="game-container">
-            <!-- Left Sidebar - Similar Games -->
-            <div class="left-sidebar">
-                <a href="/games/tube-fall" class="similar-game">
-                    <div class="similar-game-title">Tube Fall</div>
+        <aside class="left-sidebar">
+            <h3>Similar Games</h3>
+            <div class="game-list">
+                <a href="/games/tube-fall" class="game-card">
                     <img src="/images/games/thumbnails/tube-fall.jpg" alt="Tube Fall">
+                    <span>Tube Fall</span>
                 </a>
-                <a href="/games/slope-game" class="similar-game">
-                    <div class="similar-game-title">Slope Game</div>
-                    <img src="/images/games/thumbnails/slope-game.jpg" alt="Slope Game">
+                <a href="/games/slope" class="game-card">
+                    <img src="/images/games/thumbnails/slope.jpg" alt="Slope Game">
+                    <span>Slope Game</span>
                 </a>
-                <a href="/games/tap-road" class="similar-game">
-                    <div class="similar-game-title">Tap Road</div>
+                <a href="/games/tap-road" class="game-card">
                     <img src="/images/games/thumbnails/tap-road.jpg" alt="Tap Road">
+                    <span>Tap Road</span>
                 </a>
             </div>
+        </aside>
 
-            <!-- Main Game Area -->
-            <div class="game-main">
-                <h1 class="game-title">Chill Guy Clicker</h1>
-                <div class="game-frame-container">
-                    <iframe class="game-frame" src="/games/chill-guy-clicker/index.html" allowfullscreen></iframe>
+        <main class="game-main">
+            <h1 class="game-title">Chill Guy Clicker</h1>
+            <div class="game-frame-container">
+                <iframe src="/games/chill-guy-clicker/index.html" class="game-frame" allowfullscreen></iframe>
+                <button class="fullscreen-btn">Fullscreen</button>
+            </div>
+            
+            <div class="game-controls">
+                <div class="rating-container">
+                    <div class="stars">
+                        <span class="star">☆</span>
+                        <span class="star">☆</span>
+                        <span class="star">☆</span>
+                        <span class="star">☆</span>
+                        <span class="star">☆</span>
+                    </div>
+                    <span class="rating-value" data-rating="4.2">4.2/5 (287,654 votes)</span>
                 </div>
-                <div class="game-controls">
-                    <div class="rating-system">
-                        <div class="stars">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                        </div>
-                        <span class="votes">287654 votes 4.2/5</span>
-                    </div>
-                    <div class="share-buttons">
-                        <a href="#" class="share-btn share-facebook">Share</a>
-                        <a href="#" class="share-btn share-twitter">Tweet</a>
-                        <a href="#" class="share-btn share-reddit">Reddit</a>
-                        <a href="#" class="share-btn share-linkedin">Share</a>
-                    </div>
-                    <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+                
+                <div class="share-buttons">
+                    <button class="share-btn" data-platform="facebook">Share on Facebook</button>
+                    <button class="share-btn" data-platform="twitter">Share on Twitter</button>
+                    <button class="share-btn" data-platform="whatsapp">Share on WhatsApp</button>
                 </div>
             </div>
 
-            <!-- Right Sidebar - More Games -->
-            <div class="right-sidebar">
-                <a href="/games/head-basketball" class="similar-game">
-                    <div class="similar-game-title">Head Basketball</div>
+            <div class="game-description">
+                <h2>About Chill Guy Clicker</h2>
+                <p>Chill Guy Clicker is a relaxing idle game where you click to earn points and unlock upgrades. Perfect for casual gaming sessions when you want to unwind and have fun!</p>
+                
+                <h3>How to Play</h3>
+                <ul>
+                    <li>Click on the character to earn points</li>
+                    <li>Use points to buy upgrades</li>
+                    <li>Unlock new achievements and features</li>
+                    <li>Progress saves automatically</li>
+                </ul>
+            </div>
+        </main>
+
+        <aside class="right-sidebar">
+            <h3>More Games</h3>
+            <div class="game-list">
+                <a href="/games/head-basketball" class="game-card">
                     <img src="/images/games/thumbnails/head-basketball.jpg" alt="Head Basketball">
+                    <span>Head Basketball</span>
                 </a>
-                <a href="/games/slope-spooky" class="similar-game">
-                    <div class="similar-game-title">Slope Spooky</div>
+                <a href="/games/slope-spooky" class="game-card">
                     <img src="/images/games/thumbnails/slope-spooky.jpg" alt="Slope Spooky">
+                    <span>Slope Spooky</span>
                 </a>
-                <a href="/games/curve-rush" class="similar-game">
-                    <div class="similar-game-title">Curve Rush</div>
+                <a href="/games/curve-rush" class="game-card">
                     <img src="/images/games/thumbnails/curve-rush.jpg" alt="Curve Rush">
+                    <span>Curve Rush</span>
                 </a>
             </div>
-        </div>
+        </aside>
     </div>
 
-    <script>
-        // ... Copy all scripts from template.html ...
-    </script>
+    <script src="/js/game-page.js"></script>
 </body>
 </html> 
