@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Death Run 3D - Fast-Paced Runner Game | Play Free Online</title>
+    <meta name="description" content="Play Death Run 3D online for free - a high-speed 3D runner where you navigate through deadly obstacles, avoid traps, and test your reflexes in increasingly challenging levels!">
+    <link rel="canonical" href="https://example.com/games/death-run-3d.html">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .game-container {
+            display: grid;
+            grid-template-columns: 1fr 3fr 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        @media (max-width: 1024px) {
+            .game-container {
+                grid-template-columns: 1fr 2fr;
+            }
+            .right-sidebar {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .game-container {
+                grid-template-columns: 1fr;
+            }
+            .left-sidebar {
+                display: none;
+            }
+        }
+        
+        .left-sidebar, .right-sidebar {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .game-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+        }
+        
+        .game-frame {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #000;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+        }
+        
+        .stars {
+            color: #ffc107;
+            margin-right: 10px;
+        }
+        
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .share-button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .facebook { background-color: #3b5998; }
+        .twitter { background-color: #1da1f2; }
+        .reddit { background-color: #ff4500; }
+        .linkedin { background-color: #0077b5; }
+        
+        .fullscreen-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .similar-game {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .similar-game:hover {
+            background-color: #e9e9e9;
+        }
+        
+        .similar-game img {
+            width: 50px;
+            height: 50px;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        
+        .similar-game-title {
+            font-weight: 500;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../images/logo.png" alt="Logo">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../popular.html">Popular Games</a></li>
+            <li><a href="../new.html">New Games</a></li>
+            <li><a href="../categories.html">Categories</a></li>
+            <li><a href="../about.html">About</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <!-- Game Container -->
+    <div class="game-container">
+        <!-- Left Sidebar - Similar Games -->
+        <div class="left-sidebar">
+            <h3>Similar Games</h3>
+            <a href="slope-game.html" class="similar-game">
+                <img src="../images/slope-game.jpg" alt="Slope Game">
+                <span class="similar-game-title">Slope Game</span>
+            </a>
+            <a href="slope-cyber.html" class="similar-game">
+                <img src="../images/slope-cyber.jpg" alt="Slope Cyber">
+                <span class="similar-game-title">Slope Cyber</span>
+            </a>
+            <a href="escape-road.html" class="similar-game">
+                <img src="../images/escape-road.jpg" alt="Escape Road">
+                <span class="similar-game-title">Escape Road</span>
+            </a>
+            <a href="traffic-road.html" class="similar-game">
+                <img src="../images/traffic-road.jpg" alt="Traffic Road">
+                <span class="similar-game-title">Traffic Road</span>
+            </a>
+            <a href="wave-road.html" class="similar-game">
+                <img src="../images/wave-road.jpg" alt="Wave Road">
+                <span class="similar-game-title">Wave Road</span>
+            </a>
+        </div>
+
+        <!-- Main Game Area -->
+        <div class="main-game">
+            <h1 class="game-title">Death Run 3D</h1>
+            <iframe src="../games-iframe/death-run-3d.html" class="game-frame" id="game-frame" allowfullscreen></iframe>
+            <div class="controls">
+                <div class="rating">
+                    <div class="stars">★★★★★</div>
+                    <span>4.7/5 (312,845 votes)</span>
+                </div>
+                <div class="share-buttons">
+                    <div class="share-button facebook">f</div>
+                    <div class="share-button twitter">t</div>
+                    <div class="share-button reddit">r</div>
+                    <div class="share-button linkedin">in</div>
+                </div>
+                <button class="fullscreen-button" onclick="toggleFullscreen()">Fullscreen</button>
+            </div>
+            <div class="game-description">
+                <h2>About Death Run 3D</h2>
+                <p>Death Run 3D is an intense, adrenaline-pumping endless runner game that will test your reflexes like never before. Navigate through a high-speed tunnel filled with deadly obstacles and treacherous traps. The further you progress, the faster the game becomes, challenging even the most skilled players. With its sleek 3D graphics, hypnotic visual effects, and heart-pounding soundtrack, Death Run 3D delivers an immersive gaming experience that keeps you on the edge of your seat. Can you survive the death run and achieve the highest score among your friends?</p>
+                
+                <h3>How to Play</h3>
+                <p>The controls for Death Run 3D are simple but require precise timing and quick reflexes. Use the arrow keys or WASD to navigate - left arrow/A to move left, right arrow/D to move right, up arrow/W to move up, and down arrow/S to move down. On mobile devices, swipe in the corresponding direction to move. The goal is to avoid all obstacles that appear in your path as you automatically move forward at increasing speeds. Each successful dodge earns you points, and the longer you survive, the higher your score climbs. Be careful though - one collision with an obstacle means game over!</p>
+                
+                <h3>Game Features</h3>
+                <ul>
+                    <li>Fast-paced endless runner gameplay with increasing difficulty</li>
+                    <li>Sleek 3D graphics with dynamic visual effects</li>
+                    <li>Progressive speed system that intensifies the challenge</li>
+                    <li>Various obstacle patterns that require different avoidance strategies</li>
+                    <li>Global leaderboards to compete with players worldwide</li>
+                    <li>Achievement system to track your progress</li>
+                    <li>Responsive controls that work on both desktop and mobile devices</li>
+                    <li>Pulsing electronic soundtrack that enhances the intensity</li>
+                </ul>
+                
+                <h3>Game Modes</h3>
+                <p>Death Run 3D offers several game modes to keep the experience fresh and challenging:</p>
+                <ul>
+                    <li><strong>Endless Mode:</strong> The classic experience where you run as far as possible, with speed increasing over time</li>
+                    <li><strong>Time Trial:</strong> Race against the clock to reach specific distance milestones</li>
+                    <li><strong>Challenge Mode:</strong> Complete specific objectives like collecting a certain number of power-ups or surviving with restricted movement</li>
+                    <li><strong>Extreme Mode:</strong> Starts at high speed with more complex obstacle patterns for experienced players</li>
+                </ul>
+                
+                <h3>Obstacles and Hazards</h3>
+                <p>Throughout your run, you'll encounter a variety of obstacles that require different evasion techniques:</p>
+                <ul>
+                    <li><strong>Barrier Walls:</strong> Solid walls that block one or more lanes</li>
+                    <li><strong>Moving Blocks:</strong> Obstacles that shift position as you approach</li>
+                    <li><strong>Spinning Blades:</strong> Rotating hazards that require precise timing to avoid</li>
+                    <li><strong>Laser Grids:</strong> Patterns of lasers that require specific positioning to pass through</li>
+                    <li><strong>Shrinking Tunnels:</strong> Sections where the available space temporarily narrows</li>
+                    <li><strong>Color Gates:</strong> Special barriers that can only be passed if you match their color</li>
+                </ul>
+                
+                <h3>Power-Ups</h3>
+                <ul>
+                    <li><strong>Shield:</strong> Protects you from one collision with an obstacle</li>
+                    <li><strong>Slow Down:</strong> Temporarily reduces the game speed, giving you more reaction time</li>
+                    <li><strong>Score Multiplier:</strong> Doubles your points for a limited time</li>
+                    <li><strong>Magnet:</strong> Attracts collectibles to your position</li>
+                    <li><strong>Ghost Mode:</strong> Allows you to pass through certain obstacles briefly</li>
+                </ul>
+                
+                <h3>Tips for Success</h3>
+                <ul>
+                    <li>Focus on looking ahead rather than at your immediate position</li>
+                    <li>Try to memorize common obstacle patterns to anticipate what's coming</li>
+                    <li>Use power-ups strategically - save shields for particularly difficult sections</li>
+                    <li>Take breaks if you find your reaction time decreasing after long play sessions</li>
+                    <li>Practice makes perfect - the more you play, the better your reflexes will become</li>
+                    <li>Start with regular mode before attempting the more challenging variations</li>
+                    <li>Learn to recognize obstacle sequences that appear regularly</li>
+                </ul>
+                
+                <h3>Why Players Love Death Run 3D</h3>
+                <p>Death Run 3D has gained immense popularity for its perfect balance of simplicity and challenge. The game is easy to understand but difficult to master, creating that addictive "just one more try" feeling that keeps players coming back. The visually stunning graphics and hypnotic tunnel effects create an immersive experience that pulls you into its high-speed world. The satisfaction of beating your previous high score or surpassing a friend on the leaderboard provides a powerful motivation to improve. Unlike many runner games, Death Run 3D's three-dimensional movement adds depth to the gameplay, requiring spatial awareness and quick thinking in all directions. Whether you have just a few minutes to spare or are settling in for a longer gaming session, Death Run 3D delivers a thrilling experience that tests your reflexes and concentration to their limits.</p>
+            </div>
+        </div>
+
+        <!-- Right Sidebar - More Games -->
+        <div class="right-sidebar">
+            <h3>More Games</h3>
+            <a href="geometry-dash.html" class="similar-game">
+                <img src="../images/geometry-dash.jpg" alt="Geometry Dash">
+                <span class="similar-game-title">Geometry Dash</span>
+            </a>
+            <a href="snow-road-3d.html" class="similar-game">
+                <img src="../images/snow-road-3d.jpg" alt="Snow Road 3D">
+                <span class="similar-game-title">Snow Road 3D</span>
+            </a>
+            <a href="escape-road-2.html" class="similar-game">
+                <img src="../images/escape-road-2.jpg" alt="Escape Road 2">
+                <span class="similar-game-title">Escape Road 2</span>
+            </a>
+            <a href="kong-adventure.html" class="similar-game">
+                <img src="../images/kong-adventure.jpg" alt="Kong Adventure">
+                <span class="similar-game-title">Kong Adventure</span>
+            </a>
+            <a href="madalin-stunt-cars-2.html" class="similar-game">
+                <img src="../images/madalin-stunt-cars-2.jpg" alt="Madalin Stunt Cars 2">
+                <span class="similar-game-title">Madalin Stunt Cars 2</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Your Gaming Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleFullscreen() {
+            const gameFrame = document.getElementById('game-frame');
+            if (gameFrame.requestFullscreen) {
+                gameFrame.requestFullscreen();
+            } else if (gameFrame.mozRequestFullScreen) {
+                gameFrame.mozRequestFullScreen();
+            } else if (gameFrame.webkitRequestFullscreen) {
+                gameFrame.webkitRequestFullscreen();
+            } else if (gameFrame.msRequestFullscreen) {
+                gameFrame.msRequestFullscreen();
+            }
+        }
+
+        // Mobile menu toggle
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+        
+        burger.addEventListener('click', () => {
+            nav.classList.toggle('nav-active');
+            burger.classList.toggle('toggle');
+        });
+    </script>
+</body>
+</html> 

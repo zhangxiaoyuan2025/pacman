@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kong Adventure - Classic Platformer Game | Play Free Online</title>
+    <meta name="description" content="Play Kong Adventure online for free - a classic platformer where you jump, climb, and dodge obstacles while collecting bananas and battling enemies across jungle-themed levels!">
+    <link rel="canonical" href="https://example.com/games/kong-adventure.html">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .game-container {
+            display: grid;
+            grid-template-columns: 1fr 3fr 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        @media (max-width: 1024px) {
+            .game-container {
+                grid-template-columns: 1fr 2fr;
+            }
+            .right-sidebar {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .game-container {
+                grid-template-columns: 1fr;
+            }
+            .left-sidebar {
+                display: none;
+            }
+        }
+        
+        .left-sidebar, .right-sidebar {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .game-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+        }
+        
+        .game-frame {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #000;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+        }
+        
+        .stars {
+            color: #ffc107;
+            margin-right: 10px;
+        }
+        
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .share-button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .facebook { background-color: #3b5998; }
+        .twitter { background-color: #1da1f2; }
+        .reddit { background-color: #ff4500; }
+        .linkedin { background-color: #0077b5; }
+        
+        .fullscreen-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .similar-game {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .similar-game:hover {
+            background-color: #e9e9e9;
+        }
+        
+        .similar-game img {
+            width: 50px;
+            height: 50px;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        
+        .similar-game-title {
+            font-weight: 500;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../images/logo.png" alt="Logo">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../popular.html">Popular Games</a></li>
+            <li><a href="../new.html">New Games</a></li>
+            <li><a href="../categories.html">Categories</a></li>
+            <li><a href="../about.html">About</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <!-- Game Container -->
+    <div class="game-container">
+        <!-- Left Sidebar - Similar Games -->
+        <div class="left-sidebar">
+            <h3>Similar Games</h3>
+            <a href="geometry-dash.html" class="similar-game">
+                <img src="../images/geometry-dash.jpg" alt="Geometry Dash">
+                <span class="similar-game-title">Geometry Dash</span>
+            </a>
+            <a href="supermarket-master.html" class="similar-game">
+                <img src="../images/supermarket-master.jpg" alt="Supermarket Master">
+                <span class="similar-game-title">Supermarket Master</span>
+            </a>
+            <a href="among-us.html" class="similar-game">
+                <img src="../images/among-us.jpg" alt="Among Us">
+                <span class="similar-game-title">Among Us</span>
+            </a>
+            <a href="slope-game.html" class="similar-game">
+                <img src="../images/slope-game.jpg" alt="Slope Game">
+                <span class="similar-game-title">Slope Game</span>
+            </a>
+            <a href="color-rush.html" class="similar-game">
+                <img src="../images/color-rush.jpg" alt="Color Rush">
+                <span class="similar-game-title">Color Rush</span>
+            </a>
+        </div>
+
+        <!-- Main Game Area -->
+        <div class="main-game">
+            <h1 class="game-title">Kong Adventure</h1>
+            <iframe src="../games-iframe/kong-adventure.html" class="game-frame" id="game-frame" allowfullscreen></iframe>
+            <div class="controls">
+                <div class="rating">
+                    <div class="stars">★★★★★</div>
+                    <span>4.7/5 (287,934 votes)</span>
+                </div>
+                <div class="share-buttons">
+                    <div class="share-button facebook">f</div>
+                    <div class="share-button twitter">t</div>
+                    <div class="share-button reddit">r</div>
+                    <div class="share-button linkedin">in</div>
+                </div>
+                <button class="fullscreen-button" onclick="toggleFullscreen()">Fullscreen</button>
+            </div>
+            <div class="game-description">
+                <h2>About Kong Adventure</h2>
+                <p>Kong Adventure is a thrilling platformer game inspired by the classic arcade favorite. Guide your character through lush jungle environments filled with challenges, enemies, and hidden treasures. Jump across platforms, climb vines, and dodge obstacles while collecting bananas and power-ups. As you progress through increasingly difficult levels, you'll face various enemies and boss battles that will test your reflexes and timing. With its charming retro-inspired graphics and engaging gameplay, Kong Adventure offers a nostalgic yet fresh gaming experience for players of all ages.</p>
+                
+                <h3>How to Play</h3>
+                <p>The controls for Kong Adventure are straightforward but mastering them takes practice. Use the arrow keys to move left and right, press the up arrow or spacebar to jump, and the down arrow to crouch or roll. On mobile devices, use the on-screen controls to navigate. Collect as many bananas as possible to increase your score, and find hidden power-ups that grant special abilities like temporary invincibility, extra jumping power, or weapon upgrades. Avoid or defeat enemies by jumping on them or using weapons when available. Reach the end of each level within the time limit to progress to the next stage.</p>
+                
+                <h3>Game Features</h3>
+                <ul>
+                    <li>Multiple challenging levels set in vibrant jungle environments</li>
+                    <li>Classic platformer gameplay with modern enhancements</li>
+                    <li>Various enemies and boss battles to overcome</li>
+                    <li>Collectible bananas and hidden power-ups</li>
+                    <li>Special abilities and weapon upgrades</li>
+                    <li>Time challenges for additional replay value</li>
+                    <li>Retro-inspired graphics with charming character animations</li>
+                    <li>Energetic soundtrack that enhances the jungle adventure atmosphere</li>
+                </ul>
+                
+                <h3>Game Worlds and Levels</h3>
+                <p>Kong Adventure features several themed worlds, each with multiple levels:</p>
+                <ul>
+                    <li><strong>Jungle Canopy:</strong> The beginning world with basic platform challenges and introductory obstacles</li>
+                    <li><strong>Barrel Bayou:</strong> Introduces rolling barrels and water hazards</li>
+                    <li><strong>Vine Valley:</strong> Features complex vine-swinging mechanics and vertical gameplay</li>
+                    <li><strong>Temple Ruins:</strong> Ancient temple levels with traps, puzzles, and hidden passages</li>
+                    <li><strong>Volcano Peak:</strong> Challenging fire-themed levels with lava hazards and timing-based obstacles</li>
+                    <li><strong>Boss Lairs:</strong> Special levels featuring unique boss battles that require specific strategies to defeat</li>
+                </ul>
+                
+                <h3>Power-Ups and Collectibles</h3>
+                <ul>
+                    <li><strong>Bananas:</strong> Collect to increase score and earn extra lives</li>
+                    <li><strong>Golden Banana:</strong> Worth multiple regular bananas and may unlock secrets</li>
+                    <li><strong>Heart Container:</strong> Increases maximum health</li>
+                    <li><strong>Star Power:</strong> Provides temporary invincibility</li>
+                    <li><strong>Barrel Power:</strong> Grants the ability to throw barrels at enemies</li>
+                    <li><strong>Speed Boots:</strong> Increases movement speed temporarily</li>
+                    <li><strong>Super Jump:</strong> Enhances jumping ability for a limited time</li>
+                </ul>
+                
+                <h3>Tips for Success</h3>
+                <ul>
+                    <li>Learn the timing of your jumps - precision is key to clearing obstacles</li>
+                    <li>Explore every corner of each level to find hidden items and secret areas</li>
+                    <li>Save power-ups for challenging sections or boss battles</li>
+                    <li>Memorize enemy patterns to anticipate their movements</li>
+                    <li>Use the terrain to your advantage - higher ground often provides safety</li>
+                    <li>Don't rush through levels - sometimes patience is the best strategy</li>
+                    <li>Practice boss battles multiple times to learn their weaknesses</li>
+                </ul>
+                
+                <h3>Why Players Love Kong Adventure</h3>
+                <p>Kong Adventure has captured the hearts of players with its perfect blend of nostalgic platforming action and modern gameplay elements. The game pays homage to classic arcade and console platformers while introducing fresh mechanics and challenges that keep the experience engaging. The satisfying jump mechanics, responsive controls, and carefully designed levels create a balanced difficulty curve that's accessible to newcomers yet challenging for veteran players. The colorful jungle environments and charming character designs bring the world to life, while the collectible-hunting aspect adds depth and replay value. Whether you're a fan of retro platformers or new to the genre, Kong Adventure delivers an entertaining experience that's hard to put down. The "just one more level" appeal keeps players coming back to conquer every challenge and discover all the secrets hidden throughout this jungle adventure.</p>
+            </div>
+        </div>
+
+        <!-- Right Sidebar - More Games -->
+        <div class="right-sidebar">
+            <h3>More Games</h3>
+            <a href="snow-road-3d.html" class="similar-game">
+                <img src="../images/snow-road-3d.jpg" alt="Snow Road 3D">
+                <span class="similar-game-title">Snow Road 3D</span>
+            </a>
+            <a href="death-run-3d.html" class="similar-game">
+                <img src="../images/death-run-3d.jpg" alt="Death Run 3D">
+                <span class="similar-game-title">Death Run 3D</span>
+            </a>
+            <a href="madalin-stunt-cars-2.html" class="similar-game">
+                <img src="../images/madalin-stunt-cars-2.jpg" alt="Madalin Stunt Cars 2">
+                <span class="similar-game-title">Madalin Stunt Cars 2</span>
+            </a>
+            <a href="escape-road-2.html" class="similar-game">
+                <img src="../images/escape-road-2.jpg" alt="Escape Road 2">
+                <span class="similar-game-title">Escape Road 2</span>
+            </a>
+            <a href="wave-road.html" class="similar-game">
+                <img src="../images/wave-road.jpg" alt="Wave Road">
+                <span class="similar-game-title">Wave Road</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Your Gaming Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleFullscreen() {
+            const gameFrame = document.getElementById('game-frame');
+            if (gameFrame.requestFullscreen) {
+                gameFrame.requestFullscreen();
+            } else if (gameFrame.mozRequestFullScreen) {
+                gameFrame.mozRequestFullScreen();
+            } else if (gameFrame.webkitRequestFullscreen) {
+                gameFrame.webkitRequestFullscreen();
+            } else if (gameFrame.msRequestFullscreen) {
+                gameFrame.msRequestFullscreen();
+            }
+        }
+
+        // Mobile menu toggle
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+        
+        burger.addEventListener('click', () => {
+            nav.classList.toggle('nav-active');
+            burger.classList.toggle('toggle');
+        });
+    </script>
+</body>
+</html> 

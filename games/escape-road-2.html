@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Road 2 - High-Speed Racing Game | Play Free Online</title>
+    <meta name="description" content="Play Escape Road 2 online for free - an action-packed racing game where you navigate high-speed highways, dodge traffic, and escape pursuers in this thrilling sequel!">
+    <link rel="canonical" href="https://example.com/games/escape-road-2.html">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .game-container {
+            display: grid;
+            grid-template-columns: 1fr 3fr 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        @media (max-width: 1024px) {
+            .game-container {
+                grid-template-columns: 1fr 2fr;
+            }
+            .right-sidebar {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .game-container {
+                grid-template-columns: 1fr;
+            }
+            .left-sidebar {
+                display: none;
+            }
+        }
+        
+        .left-sidebar, .right-sidebar {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .game-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+        }
+        
+        .game-frame {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #000;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+        }
+        
+        .stars {
+            color: #ffc107;
+            margin-right: 10px;
+        }
+        
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .share-button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .facebook { background-color: #3b5998; }
+        .twitter { background-color: #1da1f2; }
+        .reddit { background-color: #ff4500; }
+        .linkedin { background-color: #0077b5; }
+        
+        .fullscreen-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .similar-game {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .similar-game:hover {
+            background-color: #e9e9e9;
+        }
+        
+        .similar-game img {
+            width: 50px;
+            height: 50px;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        
+        .similar-game-title {
+            font-weight: 500;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../images/logo.png" alt="Logo">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../popular.html">Popular Games</a></li>
+            <li><a href="../new.html">New Games</a></li>
+            <li><a href="../categories.html">Categories</a></li>
+            <li><a href="../about.html">About</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <!-- Game Container -->
+    <div class="game-container">
+        <!-- Left Sidebar - Similar Games -->
+        <div class="left-sidebar">
+            <h3>Similar Games</h3>
+            <a href="escape-road.html" class="similar-game">
+                <img src="../images/escape-road.jpg" alt="Escape Road">
+                <span class="similar-game-title">Escape Road</span>
+            </a>
+            <a href="escape-road-city-2.html" class="similar-game">
+                <img src="../images/escape-road-city-2.jpg" alt="Escape Road City 2">
+                <span class="similar-game-title">Escape Road City 2</span>
+            </a>
+            <a href="traffic-road.html" class="similar-game">
+                <img src="../images/traffic-road.jpg" alt="Traffic Road">
+                <span class="similar-game-title">Traffic Road</span>
+            </a>
+            <a href="snow-road-3d.html" class="similar-game">
+                <img src="../images/snow-road-3d.jpg" alt="Snow Road 3D">
+                <span class="similar-game-title">Snow Road 3D</span>
+            </a>
+            <a href="madalin-stunt-cars-2.html" class="similar-game">
+                <img src="../images/madalin-stunt-cars-2.jpg" alt="Madalin Stunt Cars 2">
+                <span class="similar-game-title">Madalin Stunt Cars 2</span>
+            </a>
+        </div>
+
+        <!-- Main Game Area -->
+        <div class="main-game">
+            <h1 class="game-title">Escape Road 2</h1>
+            <iframe src="../games-iframe/escape-road-2.html" class="game-frame" id="game-frame" allowfullscreen></iframe>
+            <div class="controls">
+                <div class="rating">
+                    <div class="stars">★★★★★</div>
+                    <span>4.7/5 (245,678 votes)</span>
+                </div>
+                <div class="share-buttons">
+                    <div class="share-button facebook">f</div>
+                    <div class="share-button twitter">t</div>
+                    <div class="share-button reddit">r</div>
+                    <div class="share-button linkedin">in</div>
+                </div>
+                <button class="fullscreen-button" onclick="toggleFullscreen()">Fullscreen</button>
+            </div>
+            <div class="game-description">
+                <h2>About Escape Road 2</h2>
+                <p>Escape Road 2 builds on the success of its predecessor, delivering an even more intense high-speed racing experience. This thrilling sequel takes the adrenaline-pumping action to new heights with enhanced graphics, more challenging gameplay, and exciting new features. As a skilled driver on the run, you'll navigate busy highways, dodge traffic, and outmaneuver pursuing vehicles while pushing your reflexes to the limit. With multiple vehicles to unlock, diverse environments to race through, and a variety of game modes, Escape Road 2 offers endless hours of fast-paced entertainment for racing enthusiasts of all skill levels.</p>
+                
+                <h3>How to Play</h3>
+                <p>The controls for Escape Road 2 are intuitive and responsive:</p>
+                <ul>
+                    <li>Use the <strong>arrow keys</strong> or <strong>WASD</strong> to control your vehicle:</li>
+                    <ul>
+                        <li>Up arrow/W: Accelerate</li>
+                        <li>Down arrow/S: Brake/Reverse</li>
+                        <li>Left arrow/A: Steer left</li>
+                        <li>Right arrow/D: Steer right</li>
+                    </ul>
+                    <li>Press <strong>Space</strong> for a temporary nitro boost (when available)</li>
+                    <li>Press <strong>P</strong> to pause the game</li>
+                    <li>On mobile devices, use the on-screen controls: steering wheel for direction and pedals for acceleration/braking</li>
+                </ul>
+                <p>The goal varies depending on the game mode. In the classic Escape mode, your objective is to drive as far as possible while avoiding other vehicles and obstacles, with your score based on the distance traveled and stunts performed. In Pursuit mode, you need to outrun police vehicles that are chasing you, maintaining your lead for as long as possible. Time Trial mode challenges you to reach checkpoints within specific time limits to extend your gameplay.</p>
+                
+                <h3>Game Features</h3>
+                <ul>
+                    <li><strong>Enhanced Graphics:</strong> Visually stunning environments with improved 3D rendering and dynamic lighting effects</li>
+                    <li><strong>Multiple Game Modes:</strong> Classic Escape, Pursuit, Time Trial, and Challenge modes for varied gameplay experiences</li>
+                    <li><strong>Vehicle Collection:</strong> Unlock and upgrade a diverse range of cars with unique handling, speed, and acceleration characteristics</li>
+                    <li><strong>Dynamic Weather System:</strong> Race through changing weather conditions including rain, fog, and night driving that affect visibility and handling</li>
+                    <li><strong>Robust Physics Engine:</strong> Realistic vehicle dynamics that respond to different surfaces, collisions, and driving maneuvers</li>
+                    <li><strong>Skill-Based Progression:</strong> Earn coins and experience points to unlock new content and upgrade your vehicles</li>
+                    <li><strong>Stunts and Tricks:</strong> Perform daring maneuvers like drifts, jumps, and near-misses to earn bonus points</li>
+                    <li><strong>Global Leaderboards:</strong> Compete with players worldwide for the top spot across different modes and tracks</li>
+                </ul>
+                
+                <h3>Game Environments</h3>
+                <p>Escape Road 2 features several diverse environments to race through:</p>
+                <ul>
+                    <li><strong>Highway:</strong> The classic high-speed multi-lane road with heavy traffic and long straightaways</li>
+                    <li><strong>City Streets:</strong> Navigate through urban environments with tight corners, intersections, and obstacles</li>
+                    <li><strong>Countryside:</strong> Race along winding rural roads with hills, curves, and fewer vehicles but more natural hazards</li>
+                    <li><strong>Industrial Zone:</strong> Speed through factory districts with challenging terrain, narrow passages, and construction areas</li>
+                    <li><strong>Coastal Highway:</strong> Enjoy scenic ocean views while navigating along clifftop roads with dramatic drops</li>
+                </ul>
+                <p>Each environment offers unique challenges and opportunities for skilled drivers to showcase their abilities and earn high scores.</p>
+                
+                <h3>Vehicle Types</h3>
+                <p>Escape Road 2 features various vehicle classes, each with distinct advantages and driving characteristics:</p>
+                <ul>
+                    <li><strong>Sports Cars:</strong> Excellent speed and handling, perfect for weaving through traffic at high velocities</li>
+                    <li><strong>Muscle Cars:</strong> Superior acceleration and power, great for quick getaways and maintaining high speeds</li>
+                    <li><strong>SUVs:</strong> Better durability and off-road capability, can withstand more damage from collisions</li>
+                    <li><strong>Exotic Supercars:</strong> Premium vehicles with the best overall performance but requiring more skill to control</li>
+                    <li><strong>Concept Cars:</strong> Futuristic vehicles with special abilities like extended nitro duration or improved handling</li>
+                </ul>
+                <p>Starting with basic vehicles, players can unlock more powerful cars by earning coins through gameplay or completing specific challenges.</p>
+                
+                <h3>Power-ups and Bonuses</h3>
+                <ul>
+                    <li><strong>Nitro Boost:</strong> Temporary speed increase to outrun pursuers or clear dangerous sections</li>
+                    <li><strong>Shield:</strong> Brief invulnerability to collisions and obstacles</li>
+                    <li><strong>Coin Magnet:</strong> Automatically collects nearby coins for a limited time</li>
+                    <li><strong>Time Slow:</strong> Briefly reduces the speed of other traffic, making navigation easier</li>
+                    <li><strong>Repair Kit:</strong> Instantly fixes damage to your vehicle, restoring its performance</li>
+                    <li><strong>Score Multiplier:</strong> Doubles the points earned for a short period</li>
+                </ul>
+                <p>These power-ups appear randomly throughout the game and can be collected by driving over them. Using them strategically is key to achieving high scores and completing challenging sections.</p>
+                
+                <h3>Tips for Success</h3>
+                <ul>
+                    <li>Master the timing of lane changes to avoid collisions at high speeds</li>
+                    <li>Save nitro boosts for straightaways or when you need to escape pursuers</li>
+                    <li>Learn to anticipate traffic patterns and look ahead to plan your route</li>
+                    <li>Practice controlled drifting for taking corners at high speeds without losing momentum</li>
+                    <li>Prioritize upgrading acceleration and handling before top speed for better control</li>
+                    <li>In pursuit mode, use other traffic as obstacles to slow down chasing vehicles</li>
+                    <li>Perform stunts like near-misses and drifts to earn bonus points, but don't take unnecessary risks</li>
+                    <li>When low on health, drive more conservatively until you find a repair power-up</li>
+                </ul>
+                
+                <h3>Why Players Love Escape Road 2</h3>
+                <p>Escape Road 2 has captivated racing game enthusiasts with its perfect balance of accessibility and depth. The easy-to-learn controls make it approachable for casual gamers, while the high skill ceiling rewards dedicated players who master advanced techniques. The constant sense of speed and danger creates an adrenaline rush that keeps players engaged, while the progression system provides long-term motivation to continue improving and unlocking new content. The variety of game modes ensures that there's always a fresh challenge to tackle, whether you have just a few minutes to spare or are settling in for a longer gaming session. With its polished gameplay, stunning visuals, and addictive progression mechanics, Escape Road 2 delivers an exhilarating racing experience that stands out in the crowded driving game genre.</p>
+            </div>
+        </div>
+
+        <!-- Right Sidebar - More Games -->
+        <div class="right-sidebar">
+            <h3>More Games</h3>
+            <a href="slope-game.html" class="similar-game">
+                <img src="../images/slope-game.jpg" alt="Slope Game">
+                <span class="similar-game-title">Slope Game</span>
+            </a>
+            <a href="snow-road.html" class="similar-game">
+                <img src="../images/snow-road.jpg" alt="Snow Road">
+                <span class="similar-game-title">Snow Road</span>
+            </a>
+            <a href="death-run-3d.html" class="similar-game">
+                <img src="../images/death-run-3d.jpg" alt="Death Run 3D">
+                <span class="similar-game-title">Death Run 3D</span>
+            </a>
+            <a href="geometry-dash.html" class="similar-game">
+                <img src="../images/geometry-dash.jpg" alt="Geometry Dash">
+                <span class="similar-game-title">Geometry Dash</span>
+            </a>
+            <a href="wave-road.html" class="similar-game">
+                <img src="../images/wave-road.jpg" alt="Wave Road">
+                <span class="similar-game-title">Wave Road</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Your Gaming Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleFullscreen() {
+            const gameFrame = document.getElementById('game-frame');
+            if (gameFrame.requestFullscreen) {
+                gameFrame.requestFullscreen();
+            } else if (gameFrame.mozRequestFullScreen) {
+                gameFrame.mozRequestFullScreen();
+            } else if (gameFrame.webkitRequestFullscreen) {
+                gameFrame.webkitRequestFullscreen();
+            } else if (gameFrame.msRequestFullscreen) {
+                gameFrame.msRequestFullscreen();
+            }
+        }
+
+        // Mobile menu toggle
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+        
+        burger.addEventListener('click', () => {
+            nav.classList.toggle('nav-active');
+            burger.classList.toggle('toggle');
+        });
+    </script>
+</body>
+</html> 
