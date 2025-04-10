@@ -42,64 +42,233 @@
 
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" type="image/png" href="/favicon.png">
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .site-header {
+            text-align: center;
+            padding: 20px;
+            background: #000;
+            margin-bottom: 20px;
+        }
+
+        .site-header h1 {
+            color: #fff;
+            font-size: 2.5em;
+            margin: 0;
+            text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
+        }
+
+        .games-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin: 0 auto;
+        }
+
+        .game-card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            border: 2px solid #0f0;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .game-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+            border-color: #00ff00;
+        }
+
+        .game-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .game-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .game-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 16px;
+            text-shadow: 0 0 5px #0f0;
+        }
+
+        .featured-game {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .featured-game .game-title {
+            font-size: 24px;
+            padding: 15px;
+        }
+
+        @media (max-width: 1200px) {
+            .games-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .games-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .games-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
 </head>
 <body>
-    <header class="header">
-        <nav class="nav-container">
-            <div class="logo">
-                <a href="/">Slope Game</a>
-            </div>
-            <div class="nav-links">
-                <a href="/games" class="nav-link">Games</a>
-                <a href="/how-to-play" class="nav-link">How to Play</a>
-                <a href="/leaderboard" class="nav-link">Leaderboard</a>
-                <a href="/about" class="nav-link">About</a>
-            </div>
-        </nav>
+    <header class="site-header">
+        <h1>Slope Game</h1>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Slope Game</h1>
-                <p>Experience the thrill of endless running in 3D</p>
-                <a href="/play" class="play-button">Play Now</a>
-            </div>
-        </section>
+    <div class="games-container">
+        <div class="games-grid">
+            <!-- Featured Game -->
+            <a href="/play" class="game-card featured-game">
+                <img src="/images/games/slope-game.jpg" alt="Slope Game">
+                <div class="game-title">Slope Game</div>
+            </a>
 
-        <section class="game-description">
-            <h2>About Slope Game</h2>
-            <p>Slope Game is an endless 3D running game where you control a ball through challenging slopes. Test your reflexes and reaction time as you navigate through obstacles and try to achieve the highest score possible.</p>
-        </section>
+            <!-- Row 1 -->
+            <a href="/games/snow-road-3d" class="game-card">
+                <img src="/images/games/snow-road-3d.jpg" alt="Snow Road 3D">
+                <div class="game-title">Snow Road 3D</div>
+            </a>
+            <a href="/games/escape-road" class="game-card">
+                <img src="/images/games/escape-road.jpg" alt="Escape Road">
+                <div class="game-title">Escape Road</div>
+            </a>
+            <a href="/games/jetski-race" class="game-card">
+                <img src="/images/games/jetski-race.jpg" alt="Jetski Race">
+                <div class="game-title">Jetski Race</div>
+            </a>
+            <a href="/games/curve-rush" class="game-card">
+                <img src="/images/games/curve-rush.jpg" alt="Curve Rush">
+                <div class="game-title">Curve Rush</div>
+            </a>
 
-        <section class="features">
-            <h2>Game Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>3D Graphics</h3>
-                    <p>Stunning neon-style 3D graphics that create an immersive gaming experience.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Simple Controls</h3>
-                    <p>Easy to learn, hard to master. Use arrow keys or A/D to control the ball.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Endless Challenge</h3>
-                    <p>Infinite procedurally generated tracks with increasing difficulty.</p>
-                </div>
-            </div>
-        </section>
+            <!-- Row 2 -->
+            <a href="/games/slope-2" class="game-card">
+                <img src="/images/games/slope-2.jpg" alt="Slope 2">
+                <div class="game-title">Slope 2</div>
+            </a>
+            <a href="/games/tube-fall" class="game-card">
+                <img src="/images/games/tube-fall.jpg" alt="Tube Fall">
+                <div class="game-title">Tube Fall</div>
+            </a>
+            <a href="/games/head-basketball" class="game-card">
+                <img src="/images/games/head-basketball.jpg" alt="Head Basketball">
+                <div class="game-title">Head Basketball</div>
+            </a>
+            <a href="/games/traffic-road" class="game-card">
+                <img src="/images/games/traffic-road.jpg" alt="Traffic Road">
+                <div class="game-title">Traffic Road</div>
+            </a>
 
-        <section class="how-to-play">
-            <h2>How to Play</h2>
-            <ol class="instructions">
-                <li>Use left and right arrow keys to control the ball</li>
-                <li>Avoid obstacles and stay on the track</li>
-                <li>Collect power-ups to boost your score</li>
-                <li>Try to achieve the highest score possible</li>
-            </ol>
-        </section>
-    </main>
+            <!-- Row 3 -->
+            <a href="/games/slope-3" class="game-card">
+                <img src="/images/games/slope-3.jpg" alt="Slope 3">
+                <div class="game-title">Slope 3</div>
+            </a>
+            <a href="/games/escape-road-2" class="game-card">
+                <img src="/images/games/escape-road-2.jpg" alt="Escape Road 2">
+                <div class="game-title">Escape Road 2</div>
+            </a>
+            <a href="/games/geometry-dash" class="game-card">
+                <img src="/images/games/geometry-dash.jpg" alt="Geometry Dash">
+                <div class="game-title">Geometry Dash</div>
+            </a>
+            <a href="/games/chill-guy-clicker" class="game-card">
+                <img src="/images/games/chill-guy-clicker.jpg" alt="Chill Guy Clicker">
+                <div class="game-title">Chill Guy Clicker</div>
+            </a>
+
+            <!-- Row 4 -->
+            <a href="/games/tap-road" class="game-card">
+                <img src="/images/games/tap-road.jpg" alt="Tap Road">
+                <div class="game-title">Tap Road</div>
+            </a>
+            <a href="/games/death-run-3d" class="game-card">
+                <img src="/images/games/death-run-3d.jpg" alt="Death Run 3D">
+                <div class="game-title">Death Run 3D</div>
+            </a>
+            <a href="/games/slope-snowball" class="game-card">
+                <img src="/images/games/slope-snowball.jpg" alt="Slope Snowball">
+                <div class="game-title">Slope Snowball</div>
+            </a>
+            <a href="/games/kong-adventure" class="game-card">
+                <img src="/images/games/kong-adventure.jpg" alt="Kong Adventure">
+                <div class="game-title">Kong Adventure</div>
+            </a>
+
+            <!-- Row 5 -->
+            <a href="/games/madalin-stunt-cars-2" class="game-card">
+                <img src="/images/games/madalin-stunt-cars-2.jpg" alt="Madalin Stunt Cars 2">
+                <div class="game-title">Madalin Stunt Cars 2</div>
+            </a>
+            <a href="/games/overtake-x" class="game-card">
+                <img src="/images/games/overtake-x.jpg" alt="Overtake X">
+                <div class="game-title">Overtake X</div>
+            </a>
+            <a href="/games/color-rush" class="game-card">
+                <img src="/images/games/color-rush.jpg" alt="Color Rush">
+                <div class="game-title">Color Rush</div>
+            </a>
+            <a href="/games/wave-road" class="game-card">
+                <img src="/images/games/wave-road.jpg" alt="Wave Road">
+                <div class="game-title">Wave Road</div>
+            </a>
+
+            <!-- Row 6 -->
+            <a href="/games/slope-spooky" class="game-card">
+                <img src="/images/games/slope-spooky.jpg" alt="Slope Spooky">
+                <div class="game-title">Slope Spooky</div>
+            </a>
+            <a href="/games/supermarket-master" class="game-card">
+                <img src="/images/games/supermarket-master.jpg" alt="Supermarket Master">
+                <div class="game-title">Supermarket Master</div>
+            </a>
+            <a href="/games/snow-road" class="game-card">
+                <img src="/images/games/snow-road.jpg" alt="Snow Road">
+                <div class="game-title">Snow Road</div>
+            </a>
+            <a href="/games/escape-road-city-2" class="game-card">
+                <img src="/images/games/escape-road-city-2.jpg" alt="Escape Road City 2">
+                <div class="game-title">Escape Road City 2</div>
+            </a>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="footer-content">
