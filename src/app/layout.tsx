@@ -57,31 +57,3 @@ export default function RootLayout({
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary-red/10 rounded-full blur-3xl" />
           <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-primary-gold/10 rounded-full blur-3xl" />
           
-          {/* 中间装饰 */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary-gold/5 rounded-full blur-3xl" />
-        </div>
-
-        {/* 主要内容 */}
-        <div className="relative z-10">
-          {children}
-        </div>
-
-        {/* 底部版权信息 */}
-        <footer className="relative z-10 mt-16 py-8 border-t border-text-muted/20">
-          <div className="max-w-4xl mx-auto px-4 text-center">
-            <p className="text-text-muted text-sm">
-              © 2024 吵架包赢神器 | 
-              <span className="mx-2">|</span>
-              AI助力，智慧回击
-              <span className="mx-2">|</span>
-              专为王者荣耀玩家设计
-            </p>
-            <p className="text-text-muted text-xs mt-2">
-              本工具仅供娱乐使用，请文明游戏，理性交流
-            </p>
-          </div>
-        </footer>
-      </body>
-    </html>
-  )
-} 

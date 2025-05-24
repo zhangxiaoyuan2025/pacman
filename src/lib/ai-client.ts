@@ -36,85 +36,51 @@ function generatePrompt(message: string, intensity: IntensityLevel): string {
 请直接返回3条回复，用换行符分隔，不需要其他说明。`;
 }
 
-// 调用AI生成回复
+// 调用本地API路由生成回复
 export async function generateResponses(request: APIRequest): Promise<APIResponse> {
   try {
-    const response = await fetch(`${API_BASE_URL}/chat/completions`, {
+    console.log('发送请求到本地API:', request);
+
+    const response = await fetch('/api/generate', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${API_KEY}`,
         'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://quarrel-master.com',
-        'X-Title': 'Quarrel Master Tool',
       },
       body: JSON.stringify({
-        model: MODEL,
-        messages: [
-          {
-            role: 'user',
-            content: generatePrompt(request.message, request.intensity)
-          }
-        ],
-        temperature: 0.8,
-        max_tokens: 1000,
+        message: request.message,
+        intensity: request.intensity
       }),
     });
 
     if (!response.ok) {
-      throw new Error(`API请求失败: ${response.status} ${response.statusText}`);
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.error || `请求失败: ${response.status} ${response.statusText}`);
     }
 
     const data = await response.json();
-    
-    if (!data.choices || !data.choices[0] || !data.choices[0].message) {
-      throw new Error('API返回数据格式错误');
-    }
+    console.log('收到API响应:', data);
 
-    const content = data.choices[0].message.content;
-    
-    // 解析AI返回的内容，分割成3条回复
-    const responses = content
-      .split('\n')
-      .filter((line: string) => line.trim().length > 0)
-      .slice(0, 3); // 确保只取前3条
-
-    if (responses.length < 3) {
-      // 如果返回的回复少于3条，用备用回复补充
-      const backupResponses = [
-        '你这话说得，让我想到了一个词：无知者无畏',
-        '哦，原来是这样啊，那我算是长见识了',
-        '说得好！下次记得带上脑子一起说'
-      ];
-      
-      while (responses.length < 3) {
-        responses.push(backupResponses[responses.length] || '你说得对，我无话可说');
-      }
-    }
-
-    return {
-      success: true,
-      responses: responses
-    };
+    return data;
 
   } catch (error) {
-    console.error('AI生成回复失败:', error);
+    console.error('客户端请求失败:', error);
     
     // 返回备用回复
     const fallbackResponses = [
-      '你这话说得很有道理，让我重新思考一下',
-      '哇，这个角度我还真没想过',
-      '说得好，不过我还是有不同看法'
+      '网络似乎有点问题，不过我还是想说几句',
+      '虽然AI暂时罢工了，但我的智慧依然在线',
+      '技术故障不能阻挡我回击的决心'
     ];
 
     return {
       success: false,
       responses: fallbackResponses,
-      error: error instanceof Error ? error.message : '未知错误'
+      error: error instanceof Error ? error.message : '网络连接失败'
     };
   }
 }
 
-// 测试AI连接
+// 测试API连接
 export async function testConnection(): Promise<boolean> {
   try {
     const testRequest: APIRequest = {
