@@ -1,41 +1,5 @@
 import { APIRequest, APIResponse, IntensityLevel } from '@/types';
 
-const API_KEY = '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';
-const API_BASE_URL = 'https://openrouter.ai/api/v1';
-const MODEL = 'deepseek/deepseek-chat';
-
-// 根据语气强度生成提示词
-function generatePrompt(message: string, intensity: IntensityLevel): string {
-  const intensityDescriptions = {
-    1: '温和而礼貌',
-    2: '稍微有些不满',
-    3: '明确表达不同意见',
-    4: '带有一定的反驳语气',
-    5: '中等强度的反击',
-    6: '比较强烈的反驳',
-    7: '激烈的反击',
-    8: '非常强烈的回怼',
-    9: '极其激烈的反击',
-    10: '最强烈的回怼'
-  };
-
-  const intensityDesc = intensityDescriptions[intensity];
-  
-  return `你是一个专业的辩论助手，擅长生成有力的回复。请根据以下要求生成回复：
-
-对方说的话：${message}
-
-要求：
-1. 生成3条不同风格的回复内容
-2. 语气强度：${intensity}/10 (${intensityDesc})
-3. 回复要机智、有理有据，但不要使用脏话或人身攻击
-4. 每条回复都要有不同的角度和风格
-5. 回复要简洁有力，适合在游戏聊天中使用
-6. 保持幽默感和智慧，让对方无话可说
-
-请直接返回3条回复，用换行符分隔，不需要其他说明。`;
-}
-
 // 调用本地API路由生成回复
 export async function generateResponses(request: APIRequest): Promise<APIResponse> {
   try {

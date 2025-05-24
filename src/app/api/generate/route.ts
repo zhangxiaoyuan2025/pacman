@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const API_KEY = process.env.OPENROUTER_API_KEY || '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';
+// OpenRouter DeepSeek V3 配置
+const API_KEY = process.env.OPENROUTER_API_KEY || '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';
 const API_BASE_URL = 'https://openrouter.ai/api/v1';
-const MODEL = 'deepseek/deepseek-chat';
+const MODEL = 'deepseek/deepseek-chat:free';  // 使用免费版本的DeepSeek V3模型
 
 function generatePrompt(message: string, intensity: number): string {
   const intensityDescriptions: { [key: number]: string } = {
@@ -61,43 +62,49 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log('开始调用AI API...');
+    console.log('🚀 调用OpenRouter DeepSeek V3 API...');
 
+    // 构建请求数据，确保正确处理中文字符
+    const requestData = {
+      model: MODEL,  // deepseek/deepseek-chat (DeepSeek V3)
+      messages: [
+        {
+          role: 'user',
+          content: generatePrompt(message, intensity)
+        }
+      ],
+      temperature: 0.8,
+      max_tokens: 1000,
+      stream: false,  // 明确指定非流式响应
+    };
+
+    // 按照OpenRouter官方文档配置请求
     const response = await fetch(`${API_BASE_URL}/chat/completions`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${API_KEY}`,
-        'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://quarrel-master.vercel.app',
-        'X-Title': 'Quarrel Master Tool',
+        'Content-Type': 'application/json; charset=utf-8',  // 明确指定UTF-8编码
+        'HTTP-Referer': 'https://quarrel-master.vercel.app',  // OpenRouter推荐的可选header
+        'X-Title': 'Quarrel Master',  // OpenRouter推荐的可选header，使用英文避免编码问题
       },
-      body: JSON.stringify({
-        model: MODEL,
-        messages: [
-          {
-            role: 'user',
-            content: generatePrompt(message, intensity)
-          }
-        ],
-        temperature: 0.8,
-        max_tokens: 1000,
-      }),
+      body: JSON.stringify(requestData),  // 使用变量而不是直接内联
     });
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error('AI API错误:', response.status, errorText);
-      throw new Error(`AI API请求失败: ${response.status} ${response.statusText}`);
+      console.error('❌ OpenRouter API错误:', response.status, errorText);
+      throw new Error(`OpenRouter API请求失败: ${response.status} ${response.statusText}`);
     }
 
     const data = await response.json();
     
     if (!data.choices || !data.choices[0] || !data.choices[0].message) {
-      throw new Error('AI API返回数据格式错误');
+      console.error('❌ API返回数据格式错误:', data);
+      throw new Error('OpenRouter API返回数据格式错误');
     }
 
     const content = data.choices[0].message.content;
-    console.log('AI返回内容:', content);
+    console.log('✅ DeepSeek V3返回内容:', content);
     
     // 解析AI返回的内容，分割成3条回复
     const responses = content
@@ -118,7 +125,7 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    console.log('成功生成回复:', responses);
+    console.log('🎯 成功生成回复:', responses);
 
     return NextResponse.json({
       success: true,
@@ -126,7 +133,7 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('API路由错误:', error);
+    console.error('💥 API路由错误:', error);
     
     // 返回备用回复
     const fallbackResponses = [
