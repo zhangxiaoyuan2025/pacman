@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const API_KEY = process.env.OPENROUTER_API_KEY || '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';
+const API_KEY = process.env.OPENROUTER_API_KEY || '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';
 const API_BASE_URL = 'https://openrouter.ai/api/v1';
 const MODEL = 'deepseek/deepseek-chat';
 
